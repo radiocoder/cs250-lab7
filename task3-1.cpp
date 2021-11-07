@@ -11,10 +11,10 @@ bool moveMin(std::vector<int> &in, std::vector<int> &out) {
 
     for (i = 0; i < in.size(); i++) {
         out.push_back(in[i]);
-    }
+    } // copy to output vector
 
     for (i = out.size() - 1; i > 0; i--) {
-        if(out[i] < out[i-1]) {
+        if(out[i] < out[i-1]) { // swap
             int temp = out[i];
             out[i] = out[i-1];
             out[i-1] = temp;
@@ -42,7 +42,7 @@ bool testMoveMin(int size) {
     for (i = 0; i < input.size(); i++) {
         if (input[i] != output[i]) {
             return false;
-        }
+        } // compare with original
     }
 
     return true;
@@ -65,11 +65,12 @@ int main(int argc, char *argv[])
 
     auto start = high_resolution_clock::now();
     
-    rc = testMoveMin(100000);
+    rc = testMoveMin(100000); // test the mov min on 100000 values
     
     auto stop = high_resolution_clock::now();
     auto duration1 = duration_cast<microseconds>(stop - start);
-    
+    // print it in seconds
+    // Here I manually mulitplied it by 100 instead of running for 100 times because my computer could not handle it
     std::cout << (duration1.count() * 100) / 1000000 << " seconds for 100 cases" << std::endl;
 
     return 0;

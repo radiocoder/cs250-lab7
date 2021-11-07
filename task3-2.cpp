@@ -11,11 +11,11 @@ bool bubbleSort(std::vector<int> &in, std::vector<int> &out) {
 
     for (i = 0; i < in.size(); i++) {
         out.push_back(in[i]);
-    }
+    } // copy to output vector
 
     for (i = 0; i < out.size() - 1; i++) {
         for (j = 0; j < out.size() - i - 1; j++) {
-            if (out[j] > out[j+1]) {
+            if (out[j] > out[j+1]) { // swap
                 int temp = out[j];
                 out[j] = out[j+1];
                 out[j+1] = temp;
@@ -44,7 +44,7 @@ bool testBubbleSort(int size) {
     for (i = 0; i < input.size(); i++) {
         if (input[i] != output[i]) {
             return false;
-        }
+        } // compare if both are equal
     }
 
     return true;
@@ -72,7 +72,8 @@ int main(int argc, char *argv[])
     auto stop = high_resolution_clock::now();
 
     auto duration2 = duration_cast<microseconds>(stop - start);
-  
+    // print it in seconds
+    // Here I manually mulitplied it by 100 instead of running for 100 times because my computer could not handle it
     std::cerr << (double)((duration2.count() * 100) / 1000000) << " seconds for 100 cases" << "\n";
     return 0;
 }
